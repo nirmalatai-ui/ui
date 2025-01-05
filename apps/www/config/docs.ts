@@ -94,6 +94,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Astro",
+          href: "/docs/dark-mode/astro",
+          items: [],
+        },
+        {
           title: "Remix",
           href: "/docs/installation/remix",
           items: [],
