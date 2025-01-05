@@ -1,7 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons"
+import {
+  CaretSortIcon,
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from "@radix-ui/react-icons"
 import * as SelectPrimitive from "@radix-ui/react-select"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
@@ -55,7 +60,7 @@ const SelectContent = React.forwardRef<
           className
         )}
       >
-        <ChevronUp />
+        <ChevronUpIcon />
       </SelectPrimitive.ScrollUpButton>
       <SelectPrimitive.Viewport
         className={cn(
@@ -72,7 +77,7 @@ const SelectContent = React.forwardRef<
           className
         )}
       >
-        <ChevronDown />
+        <ChevronDownIcon />
       </SelectPrimitive.ScrollDownButton>
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
