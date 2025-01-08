@@ -23,7 +23,7 @@ export function PodcastEmptyPlaceholder() {
           You have not added any podcasts. Add one below.
         </p>
         <Dialog>
-          <DialogTrigger>
+          <DialogTrigger asChild>
             <Button size="sm" className="relative">
               <Plus className="mr-2 h-4 w-4" />
               Add Podcast
