@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/new-york/ui/card"
+import { Separator } from "@/registry/new-york/ui/separator"
 import { Switch } from "@/registry/new-york/ui/switch"
 
 const notifications = [

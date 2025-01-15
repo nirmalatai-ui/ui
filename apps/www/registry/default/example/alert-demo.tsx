@@ -1,4 +1,4 @@
-import { Terminal } from "lucide-react"
+import { Terminal, Waves } from "lucide-react"
 
 import {
   Alert,

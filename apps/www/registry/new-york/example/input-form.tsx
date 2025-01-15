@@ -26,9 +26,6 @@ const FormSchema = z.object({
 export default function InputForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues: {
-      username: "",
-    },
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -52,7 +49,7 @@ export default function InputForm() {
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="nirmalatai" {...field} />
+                <Input placeholder="Ekjotmakhija" {...field} />
               </FormControl>
               <FormDescription>
                 This is your public display name.
