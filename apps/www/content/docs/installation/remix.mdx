@@ -26,6 +26,7 @@ npx nirmalatai-ui@latest init
 You will be asked a few questions to configure `components.json`:
 
 ```txt showLineNumbers
+Would you like to use TypeScript (recommended)? no / yes
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
 Where is your global CSS file? › app/tailwind.css
@@ -58,7 +59,7 @@ npm add -D tailwindcss@latest autoprefixer@latest
 Then we create a `postcss.config.js` file:
 
 ```js
-export default = {
+export default {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
@@ -70,7 +71,7 @@ And finally we add the following to our `remix.config.js` file:
 
 ```js {4-5}
 /** @type {import('@remix-run/dev').AppConfig} */
-export default = {
+export default {
   ...
   tailwind: true,
   postcss: true,
@@ -102,7 +103,7 @@ npx nirmalatai-ui@latest add button
 The command above will add the `Button` component to your project. You can then import it like this:
 
 ```tsx {1,6} showLineNumbers
-import { Button } from "@/components/ui"
+import { Button } from "~/components/ui/button"
 
 export default function Home() {
   return (

@@ -47,11 +47,15 @@ packages
 ### Fork this repo
 
 You can fork this repo by clicking the fork button in the top right corner of this page.
+
 ### Clone on your local machine
+
 ```bash
 git clone https://github.com/your-username/ui.git
 ```
+
 ### Navigate to project directory
+
 ```bash
 cd ui
 ```
@@ -61,7 +65,9 @@ cd ui
 ```bash
 git checkout -b my-new-branch
 ```
+
 ### Install dependencies
+
 ```bash
 pnpm install
 ```
@@ -72,7 +78,7 @@ You can use the `pnpm --filter=[WORKSPACE]` command to start the development pro
 
 #### Examples
 
-1. To run the `ui.url.com` website:
+1. To run the `ui.nirmalatai-ui.com` website:
 
 ```bash
 pnpm --filter=www dev
@@ -153,7 +159,7 @@ If you have a request for a new component, please open a discussion on GitHub. W
 
 ## CLI
 
-The `nirmalatai-ui` package is a CLI for adding components to your project. You can find the documentation for the CLI [here]().
+The `nirmalatai-ui` package is a CLI for adding components to your project. You can find the documentation for the CLI [here](https://ui.nirmalatai-ui.com/docs/cli).
 
 Any changes to the CLI should be made in the `packages/cli` directory. If you can, it would be great if you could add tests for your changes.
 

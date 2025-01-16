@@ -5,9 +5,12 @@ import { Config } from "@/src/utils/get-config"
 import { registryBaseColorSchema } from "@/src/utils/registry/schema"
 import { transformCssVars } from "@/src/utils/transformers/transform-css-vars"
 import { transformImport } from "@/src/utils/transformers/transform-import"
+import { transformJsx } from "@/src/utils/transformers/transform-jsx"
 import { transformRsc } from "@/src/utils/transformers/transform-rsc"
 import { Project, ScriptKind, type SourceFile } from "ts-morph"
 import * as z from "zod"
+
+import { transformTwPrefixes } from "./transform-tw-prefix"
 
 export type TransformOpts = {
   filename: string
@@ -16,16 +19,17 @@ export type TransformOpts = {
   baseColor?: z.infer<typeof registryBaseColorSchema>
 }
 
-export type Transformer = (
+export type Transformer<Output = SourceFile> = (
   opts: TransformOpts & {
     sourceFile: SourceFile
   }
-) => Promise<SourceFile>
+) => Promise<Output>
 
 const transformers: Transformer[] = [
   transformImport,
   transformRsc,
   transformCssVars,
+  transformTwPrefixes,
 ]
 
 const project = new Project({
@@ -33,7 +37,7 @@ const project = new Project({
 })
 
 async function createTempSourceFile(filename: string) {
-  const dir = await fs.mkdtemp(path.join(tmpdir(), "nirmalatai-ui"))
+  const dir = await fs.mkdtemp(path.join(tmpdir(), "nirmalatai-ui-"))
   return path.join(dir, filename)
 }
 
@@ -47,5 +51,8 @@ export async function transform(opts: TransformOpts) {
     transformer({ sourceFile, ...opts })
   }
 
-  return sourceFile.getFullText()
+  return await transformJsx({
+    sourceFile,
+    ...opts,
+  })
 }

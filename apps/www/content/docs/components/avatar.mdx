@@ -2,8 +2,8 @@
 title: Avatar
 description: An image element with a fallback for representing the user.
 component: true
-radix:
-  link: https://www.radix-ui.com/docs/primitives/components/avatar
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/avatar
   api: https://www.radix-ui.com/docs/primitives/components/avatar#api-reference
 ---
 
@@ -29,6 +29,12 @@ npx nirmalatai-ui@latest add avatar
 
 <Steps>
 
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-avatar
+```
+
 <Step>Copy and paste the following code into your project.</Step>
 
 <ComponentSource name="avatar" />
@@ -49,7 +55,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 ```tsx
 <Avatar>
-  <AvatarImage src="https://github.com/nirmalatai.png" />
+  <AvatarImage src="https://github.com/ekjotsinghmakhija.png" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>
 ```

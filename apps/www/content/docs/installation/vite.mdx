@@ -44,7 +44,7 @@ Add the following code to the `tsconfig.json` file to resolve paths:
 
 ### Update vite.config.ts
 
-Add the code below to the vite.config.ts so your app can resolve paths without error
+Add the following code to the vite.config.ts so your app can resolve paths without error
 
 ```bash
 # (so you can import "path" without error)
@@ -79,6 +79,7 @@ npx nirmalatai-ui@latest init
 You will be asked a few questions to configure `components.json`:
 
 ```txt showLineNumbers
+Would you like to use TypeScript (recommended)? no / yes
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
 Where is your global CSS file? › › src/index.css
@@ -100,7 +101,7 @@ npx nirmalatai-ui@latest add button
 The command above will add the `Button` component to your project. You can then import it like this:
 
 ```tsx {1,6} showLineNumbers
-import { Button } from "@/components/ui"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (

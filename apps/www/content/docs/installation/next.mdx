@@ -26,6 +26,7 @@ npx nirmalatai-ui@latest init
 You will be asked a few questions to configure `components.json`:
 
 ```txt showLineNumbers
+Would you like to use TypeScript (recommended)? no / yes
 Which style would you like to use? › Default
 Which color would you like to use as base color? › Slate
 Where is your global CSS file? › › app/globals.css
@@ -38,8 +39,7 @@ Are you using React Server Components? › no / yes
 
 ### Fonts
 
-I use [Inter](https://rsms.me/inter/) as the default font. Inter is not required. You can
-replace it with any other font.
+I use [Inter](https://rsms.me/inter/) as the default font. Inter is not required. You can replace it with any other font.
 
 Here's how I configure Inter for Next.js:
 
@@ -137,7 +137,7 @@ npx nirmalatai-ui@latest add button
 The command above will add the `Button` component to your project. You can then import it like this:
 
 ```tsx {1,6} showLineNumbers
-import { Button } from "@/components/ui"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (

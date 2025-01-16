@@ -6,15 +6,24 @@ export function cn(...inputs: ClassValue[]) {
 }
 `
 
+export const UTILS_JS = `import { clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs) {
+  return twMerge(clsx(inputs))
+}
+`
+
 export const TAILWIND_CONFIG = `/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    './pages/**/*.{<%- extension %>,<%- extension %>x}',
+    './components/**/*.{<%- extension %>,<%- extension %>x}',
+    './app/**/*.{<%- extension %>,<%- extension %>x}',
+    './src/**/*.{<%- extension %>,<%- extension %>x}',
+  ],
+  prefix: "<%- prefix %>",
   theme: {
     container: {
       center: true,
@@ -47,11 +56,12 @@ export const TAILWIND_CONFIG_WITH_VARIABLES = `/** @type {import('tailwindcss').
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    './pages/**/*.{<%- extension %>,<%- extension %>x}',
+    './components/**/*.{<%- extension %>,<%- extension %>x}',
+    './app/**/*.{<%- extension %>,<%- extension %>x}',
+    './src/**/*.{<%- extension %>,<%- extension %>x}',
+  ],
+  prefix: "<%- prefix %>",
   theme: {
     container: {
       center: true,
@@ -121,6 +131,7 @@ module.exports = {
 }`
 
 export const TAILWIND_CONFIG_TS = `import type { Config } from "tailwindcss"
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -129,6 +140,7 @@ const config = {
     './app/**/*.{<%- extension %>,<%- extension %>x}',
     './src/**/*.{<%- extension %>,<%- extension %>x}',
   ],
+  prefix: "<%- prefix %>",
   theme: {
     container: {
       center: true,
@@ -156,8 +168,11 @@ const config = {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
+
 export default config`
+
 export const TAILWIND_CONFIG_TS_WITH_VARIABLES = `import type { Config } from "tailwindcss"
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -166,6 +181,7 @@ const config = {
     './app/**/*.{<%- extension %>,<%- extension %>x}',
     './src/**/*.{<%- extension %>,<%- extension %>x}',
 	],
+  prefix: "<%- prefix %>",
   theme: {
     container: {
       center: true,

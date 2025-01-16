@@ -5,7 +5,7 @@ A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
 ## Usage
 
 ```bash
-npx create-next-app -e https://github.com/
+npx create-next-app -e https://github.com/nirmalatai-ui/next-template
 ```
 
 ## Features
@@ -19,4 +19,4 @@ npx create-next-app -e https://github.com/
 
 ## License
 
-Licensed under the [MIT license](https://github.com/).
+Licensed under the [MIT license](https://github.com/nirmalatai-ui/ui/blob/main/LICENSE.md).

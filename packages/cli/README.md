@@ -36,8 +36,8 @@ npx nirmalatai-ui add
 
 ## Documentation
 
-Visit <url>  to view the documentation.
+Visit https://ui.nirmalatai-ui.com/docs/cli to view the documentation.
 
 ## License
 
-Licensed under the [MIT license](https://github.com/).
+Licensed under the [MIT license](https://github.com/nirmalatai-ui/ui/blob/main/LICENSE.md).

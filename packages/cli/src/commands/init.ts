@@ -27,6 +27,8 @@ import ora from "ora"
 import prompts from "prompts"
 import * as z from "zod"
 
+import { applyPrefixesCss } from "../utils/transformers/transform-tw-prefix"
+
 const PROJECT_DEPENDENCIES = [
   "tailwindcss-animate",
   "class-variance-authority",
@@ -40,40 +42,40 @@ const initOptionsSchema = z.object({
 })
 
 export const init = new Command()
-.name("init")
-.description("initialize your project and install dependencies")
-.option("-y, --yes", "skip confirmation prompt.", false)
-.option(
-  "-c, --cwd <cwd>",
-  "the working directory. defaults to the current directory.",
-  process.cwd()
-)
-.action(async (opts) => {
-  try {
-    const options = initOptionsSchema.parse(opts)
-    const cwd = path.resolve(options.cwd)
+  .name("init")
+  .description("initialize your project and install dependencies")
+  .option("-y, --yes", "skip confirmation prompt.", false)
+  .option(
+    "-c, --cwd <cwd>",
+    "the working directory. defaults to the current directory.",
+    process.cwd()
+  )
+  .action(async (opts) => {
+    try {
+      const options = initOptionsSchema.parse(opts)
+      const cwd = path.resolve(options.cwd)
 
-    // Ensure target directory exists.
-    if (!existsSync(cwd)) {
-      logger.error(`The path ${cwd} does not exist. Please try again.`)
-      process.exit(1)
+      // Ensure target directory exists.
+      if (!existsSync(cwd)) {
+        logger.error(`The path ${cwd} does not exist. Please try again.`)
+        process.exit(1)
+      }
+
+      // Read config.
+      const existingConfig = await getConfig(cwd)
+      const config = await promptForConfig(cwd, existingConfig, options.yes)
+
+      await runInit(cwd, config)
+
+      logger.info("")
+      logger.info(
+        `${chalk.green("Success!")} Project initialization completed.`
+      )
+      logger.info("")
+    } catch (error) {
+      handleError(error)
     }
-
-    // Read config.
-    const existingConfig = await getConfig(cwd)
-    const config = await promptForConfig(cwd, existingConfig, options.yes)
-
-    await runInit(cwd, config)
-
-    logger.info("")
-    logger.info(
-      `${chalk.green("Success!")} Project initialization completed.`
-    )
-    logger.info("")
-  } catch (error) {
-    handleError(error)
-  }
-})
+  })
 
 export async function promptForConfig(
   cwd: string,
@@ -90,8 +92,8 @@ export async function promptForConfig(
       type: "toggle",
       name: "typescript",
       message: `Would you like to use ${highlight(
-"TypeScript"
-)} (recommended)?`,
+        "TypeScript"
+      )} (recommended)?`,
       initial: defaultConfig?.tsx ?? true,
       active: "yes",
       inactive: "no",
@@ -109,8 +111,8 @@ export async function promptForConfig(
       type: "select",
       name: "tailwindBaseColor",
       message: `Which color would you like to use as ${highlight(
-"base color"
-)}?`,
+        "base color"
+      )}?`,
       choices: baseColors.map((color) => ({
         title: color.label,
         value: color.name,
@@ -126,11 +128,19 @@ export async function promptForConfig(
       type: "toggle",
       name: "tailwindCssVariables",
       message: `Would you like to use ${highlight(
-"CSS variables"
-)} for colors?`,
+        "CSS variables"
+      )} for colors?`,
       initial: defaultConfig?.tailwind.cssVariables ?? true,
       active: "yes",
       inactive: "no",
+    },
+    {
+      type: "text",
+      name: "tailwindPrefix",
+      message: `Are you using a custom ${highlight(
+        "tailwind prefix eg. tw-"
+      )}? (Leave blank if not)`,
+      initial: "",
     },
     {
       type: "text",
@@ -161,13 +171,14 @@ export async function promptForConfig(
   ])
 
   const config = rawConfigSchema.parse({
-    $schema: "https://ui.shadcn.com/schema.json",
+    $schema: "https://ui.nirmalatai-ui.com/schema.json",
     style: options.style,
     tailwind: {
       config: options.tailwindConfig,
       css: options.tailwindCss,
       baseColor: options.tailwindBaseColor,
       cssVariables: options.tailwindCssVariables,
+      prefix: options.tailwindPrefix,
     },
     rsc: options.rsc,
     tsx: options.typescript,
@@ -182,8 +193,8 @@ export async function promptForConfig(
       type: "confirm",
       name: "proceed",
       message: `Write configuration to ${highlight(
-"components.json"
-)}. Proceed?`,
+        "components.json"
+      )}. Proceed?`,
       initial: true,
     })
 
@@ -246,7 +257,10 @@ export async function runInit(cwd: string, config: Config) {
   // Write tailwind config.
   await fs.writeFile(
     config.resolvedPaths.tailwindConfig,
-    template(tailwindConfigTemplate)({ extension }),
+    template(tailwindConfigTemplate)({
+      extension,
+      prefix: config.tailwind.prefix,
+    }),
     "utf8"
   )
 
@@ -256,7 +270,9 @@ export async function runInit(cwd: string, config: Config) {
     await fs.writeFile(
       config.resolvedPaths.tailwindCss,
       config.tailwind.cssVariables
-        ? baseColor.cssVarsTemplate
+        ? config.tailwind.prefix
+          ? applyPrefixesCss(baseColor.cssVarsTemplate, config.tailwind.prefix)
+          : baseColor.cssVarsTemplate
         : baseColor.inlineColorsTemplate,
       "utf8"
     )

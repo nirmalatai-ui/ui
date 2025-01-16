@@ -1,5 +1,5 @@
 {
-  "$schema": "https://ui.url.com/schema.json",
+  "$schema": "https://ui.nirmalatai-ui.com/schema.json",
   "style": "default",
   "tailwind": {
     "config": "tailwind.config.js",
