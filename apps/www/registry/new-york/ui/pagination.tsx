@@ -16,6 +16,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
     {...props}
   />
 )
+Pagination.displayName = "Pagination"
 
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
@@ -92,6 +93,7 @@ const PaginationNext = ({
     <ChevronRightIcon className="h-4 w-4" />
   </PaginationLink>
 )
+Pagination.displayName = "Pagination"
 
 const PaginationEllipsis = ({
   className,
@@ -106,6 +108,7 @@ const PaginationEllipsis = ({
     <span className="sr-only">More pages</span>
   </span>
 )
+Pagination.displayName = "Pagination"
 
 export {
   Pagination,
