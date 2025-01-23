@@ -4,9 +4,19 @@ description: Latest updates and announcements.
 toc: false
 ---
 
-## December 2023 - New components, CLI and more
+## Januaury 2025 - Breadcrumb and Input OTP
+We've added a new Breadcrumb component and an Input OTP component.
+### Breadcrumb
+An accessible and flexible breadcrumb component. It has support for collapsed items, custom separators, bring-your-own routing `<Link />` and composable with other nirmalatai/ui components.
+<ComponentPreview name="breadcrumb-demo" />
+[See more examples](/docs/components/breadcrumb)
+### Input OTP
+A fully featured input OTP component. It has support for numeric and alphanumeric codes, custom length, copy-paste and accessible. Input OTP is built on top of [input-otp](https://github.com/guilhermerodz/input-otp) by [@guilherme_rodz](https://twitter.com/guilherme_rodz).
+<ComponentPreview name="input-otp-demo" />
+[Read the docs](/docs/components/input-otp)
+## Januaury 2025 - New components, CLI and more
 
-We've added new components to nirmalatai-ui/ui and made a lot of improvements to the CLI.
+We've added new components to nirmalatai/ui and made a lot of improvements to the CLI.
 
 Here's a quick overview of what's new:
 
@@ -49,7 +59,7 @@ Build resizable panel groups and layouts with this `<Resizable />` component.
 
 ### Sonner
 
-Another one by [emilkowalski\_](https://twitter.com/emilkowalski_). The last toast component you'll ever need. Sonner is now availabe in nirmalatai-ui/ui.
+Another one by [emilkowalski\_](https://twitter.com/emilkowalski_). The last toast component you'll ever need. Sonner is now availabe in nirmalatai/ui.
 
 <ComponentPreview name="sonner-demo" />
 
@@ -57,7 +67,7 @@ Another one by [emilkowalski\_](https://twitter.com/emilkowalski_). The last toa
 
 This has been one of the most requested features. You can now configure a custom Tailwind prefix and the cli will automatically prefix your utility classes when adding components.
 
-This means you can now easily add nirmalatai-ui/ui components to existing projects like Docusaurus, Nextra...etc. A drop-in for your existing design system with no conflict. 🔥
+This means you can now easily add nirmalatai/ui components to existing projects like Docusaurus, Nextra...etc. A drop-in for your existing design system with no conflict. 🔥
 
 ```tsx /tw-/
 <AlertDialog className="tw-grid tw-gap-4 tw-border tw-bg-background tw-shadow-lg" />
@@ -69,7 +79,7 @@ The cli can now also detect `tailwind.config.ts` and add the TypeScript version 
 
 That's it. Happy Holidays.
 
-## July 2023 - JavaScript
+## Januaury 2025 - JavaScript
 
 This project and the components are written in TypeScript. **We recommend using TypeScript for your project as well**.
 
@@ -111,7 +121,7 @@ To configure import aliases, you can use the following `jsconfig.json`:
 }
 ```
 
-## June 2023 - New CLI, Styles and more
+## Januaury 2025 - New CLI, Styles and more
 
 I have a lot of updates to share with you today:
 
@@ -133,7 +143,7 @@ I've been working on a new CLI for the past few weeks. It's a complete rewrite. 
 ### `init`
 
 ```bash
-npx nirmalatai-ui-ui@latest init
+npx nirmalatai-ui@latest init
 ```
 
 When you run the `init` command, you will be asked a few questions to configure `components.json`:
@@ -175,7 +185,7 @@ This means you can now use the CLI with any directory structure including `src` 
 ### `add`
 
 ```bash
-npx nirmalatai-ui-ui@latest add
+npx nirmalatai-ui@latest add
 ```
 
 The `add` command is now much more capable. You can now add UI components but also import more complex components (coming soon).
@@ -185,7 +195,7 @@ The CLI will automatically resolve all components and dependencies, format them 
 ### `diff` (experimental)
 
 ```bash
-npx nirmalatai-ui-ui diff
+npx nirmalatai-ui diff
 ```
 
 We're also introducing a new `diff` command to help you keep track of upstream updates.
@@ -195,7 +205,7 @@ You can use this command to see what has changed in the upstream repository and 
 Run the `diff` command to get a list of components that have updates available:
 
 ```bash
-npx nirmalatai-ui-ui diff
+npx nirmalatai-ui diff
 ```
 
 ```txt
@@ -210,7 +220,7 @@ The following components have updates available:
 Then run `diff [component]` to see the changes:
 
 ```bash
-npx nirmalatai-ui-ui diff alert
+npx nirmalatai-ui diff alert
 ```
 
 ```diff /pl-12/
