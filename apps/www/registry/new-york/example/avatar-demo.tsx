@@ -7,7 +7,7 @@ import {
 export default function AvatarDemo() {
   return (
     <Avatar>
-      <AvatarImage src="https://github.com/Ekjotsinghmakhija.png" alt="@Ekjotmakhija" />
+      <AvatarImage src="https://github.com/Ekjotsinghmakhija.png" alt="@Ekjotsinghmakhija" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   )

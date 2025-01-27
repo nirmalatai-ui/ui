@@ -77,7 +77,7 @@ test("get config", async () => {
         "../fixtures/config-partial",
         "./lib/utils"
       ),
-        ui: path.resolve(__dirname, "../fixtures/config-partial", "./components"),
+      ui: path.resolve(__dirname, "../fixtures/config-partial", "./components"),
     },
   })
 
@@ -114,7 +114,7 @@ test("get config", async () => {
         "../fixtures/config-full",
         "./src/components"
       ),
-        ui: path.resolve(
+      ui: path.resolve(
         __dirname,
         "../fixtures/config-full",
         "./src/components"

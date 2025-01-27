@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "author": {
-    "name": "Ekjot Singh",
+    "name": "Ekjotmakhija",
     "url": "https://twitter.com/Ekjotmakhija"
   },
   "workspaces": [
@@ -15,11 +15,12 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:cli": "turbo --filter=nirmalatai-ui build",
+    "build:cli": "turbo --filter=nirmalatai-ui-ui build",
     "build:registry": "pnpm --filter=www build:registry",
     "dev": "turbo run dev --parallel",
-    "dev:cli": "turbo --filter=nirmalatai-ui dev",
-    "start:cli": "pnpm --filter=nirmalatai-ui start:dev",
+    "cli:dev": "turbo --filter=nirmalatai-ui-ui dev",
+    "cli:start": "pnpm --filter=nirmalatai-ui-ui start:dev",
+    "www:dev": "pnpm --filter=www dev",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "preview": "turbo run preview",
@@ -43,9 +44,6 @@
     "@commitlint/config-conventional": "^17.6.3",
     "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
     "@manypkg/cli": "^0.20.0",
-    "@types/node": "^17.0.45",
-    "@types/react": "^18.2.7",
-    "@types/react-dom": "^18.2.4",
     "@typescript-eslint/parser": "^5.59.7",
     "autoprefixer": "^10.4.14",
     "concurrently": "^8.0.1",
@@ -64,8 +62,13 @@
     "tailwindcss-animate": "^1.0.5",
     "tsx": "^4.1.4",
     "turbo": "^1.9.9",
-    "typescript": "^4.9.5",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.31.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.27",
+    "@types/react": "^18.2.65",
+    "@types/react-dom": "^18.2.22",
+    "typescript": "^5.4.2"
   }
 }

@@ -10,7 +10,7 @@ export function PromoVideo() {
     >
       <video autoPlay muted playsInline>
         <source
-          src=""
+          src="https://ui-nirmalatai-ui.s3.amazonaws.com/ui-promo-hd.mp4"
           type="video/mp4"
         />
       </video>

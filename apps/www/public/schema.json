@@ -20,7 +20,7 @@
         },
         "cssVariables": {
           "type": "boolean"
-          },
+        },
         "prefix": {
           "type": "string"
         }
@@ -41,10 +41,7 @@
         },
         "components": {
           "type": "string"
-          },
-        "ui": {
-          "type": "string"
-          },
+        },
         "ui": {
           "type": "string"
         }

@@ -1,4 +1,5 @@
 import { Skeleton } from "@/registry/default/ui/skeleton"
+
 export default function SkeletonCard() {
   return (
     <div className="flex flex-col space-y-3">

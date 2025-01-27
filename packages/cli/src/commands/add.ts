@@ -180,7 +180,7 @@ export const add = new Command()
           await fs.writeFile(filePath, content)
         }
 
-      const packageManager = await getPackageManager(cwd)
+        const packageManager = await getPackageManager(cwd)
 
         // Install dependencies.
         if (item.dependencies?.length) {
@@ -196,7 +196,7 @@ export const add = new Command()
           )
         }
 
-      // Install devDependencies.
+        // Install devDependencies.
         if (item.devDependencies?.length) {
           await execa(
             packageManager,

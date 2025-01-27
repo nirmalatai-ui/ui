@@ -6,8 +6,6 @@ import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { Analytics } from "@/components/analytics"
 import { ThemeProvider } from "@/components/providers"
-import { SiteFooter } from "@/components/site-footer"
-import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
@@ -30,11 +28,11 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "Ekjot Singh",
+      name: "nirmalatai-ui",
       url: "https://nirmalatai-ui.com",
     },
   ],
-  creator: "Ekjotmakhija",
+  creator: "Ekjot Singh",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -56,7 +54,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@Ekjotmakhija",
+    creator: "@Ekjotsingh",
   },
   icons: {
     icon: "/favicon.ico",
@@ -85,7 +83,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
-            fontSans.className
+            fontSans.variable
           )}
         >
           <ThemeProvider
@@ -96,9 +94,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             <div vaul-drawer-wrapper="">
               <div className="relative flex min-h-screen flex-col bg-background">
-                <SiteHeader />
-                <main className="flex-1">{children}</main>
-                <SiteFooter />
+                {children}
               </div>
             </div>
             <TailwindIndicator />

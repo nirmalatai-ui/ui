@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "nirmalatai/ui",
-  url: "https://ui.nirmalatai.com",
-  ogImage: "https://ui.nirmalatai.com/og.jpg",
+  name: "nirmalatai-ui/ui",
+  url: "https://ui.nirmalatai-ui.com",
+  ogImage: "https://ui.nirmalatai-ui.com/og.jpg",
   description:
     "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
   links: {

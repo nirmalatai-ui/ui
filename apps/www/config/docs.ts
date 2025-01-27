@@ -24,18 +24,8 @@ export const docsConfig: DocsConfig = {
       href: "/examples",
     },
     {
-      title: "Figma",
-      href: "/docs/figma",
-    },
-    {
-      title: "GitHub",
-      href: "https://github.com/nirmalatai-ui/ui",
-      external: true,
-    },
-    {
-      title: "Twitter",
-      href: "https://twitter.com/Ekjotmakhija",
-      external: true,
+      title: "Blocks",
+      href: "/blocks",
     },
   ],
   sidebarNav: [
@@ -258,7 +248,6 @@ export const docsConfig: DocsConfig = {
           title: "Resizable",
           href: "/docs/components/resizable",
           items: [],
-          label: "New",
         },
         {
           title: "Scroll Area",

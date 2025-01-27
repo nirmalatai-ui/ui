@@ -45,7 +45,7 @@ const PaginationLink = ({
   size = "icon",
   ...props
 }: PaginationLinkProps) => (
-<a
+  <a
     aria-current={isActive ? "page" : undefined}
     className={cn(
       buttonVariants({
@@ -89,7 +89,7 @@ const PaginationNext = ({
     <ChevronRight className="h-4 w-4" />
   </PaginationLink>
 )
-Pagination.displayName = "Pagination"
+PaginationNext.displayName = "PaginationNext"
 
 const PaginationEllipsis = ({
   className,
@@ -104,7 +104,7 @@ const PaginationEllipsis = ({
     <span className="sr-only">More pages</span>
   </span>
 )
-Pagination.displayName = "Pagination"
+PaginationEllipsis.displayName = "PaginationEllipsis"
 
 export {
   Pagination,

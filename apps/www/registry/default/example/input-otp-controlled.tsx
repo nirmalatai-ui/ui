@@ -17,7 +17,7 @@ export default function InputOTPControlled() {
         maxLength={6}
         value={value}
         onChange={(value) => setValue(value)}
-        >
+      >
         <InputOTPGroup>
           <InputOTPSlot index={0} />
           <InputOTPSlot index={1} />

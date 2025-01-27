@@ -31,7 +31,7 @@ npx nirmalatai-ui add alert-dialog
 You can also run the command without any arguments to view a list of all available components:
 
 ```bash
-npx nirmalatai-ui add
+npx nirmalatai-ui-ui add
 ```
 
 ## Documentation
